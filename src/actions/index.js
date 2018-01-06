@@ -3,8 +3,6 @@ import {
   GOOGLE_TRENDS_API, SELECT_STORY, SELECT_CATEGORY, SELECT_COUNTRY, FETCH_STORIES
 } from './types';
 
-// TODO: Chain fetchStories and fetchInterests and display the gradient of interests change in diffrent colours
-
 export function fetchStories() {
   return (dispatch, getState) => {
     const { categories, countries } = getState();

@@ -19,7 +19,6 @@ class StoryList extends Component {
   render() {
     const { stories, categories, countries, fetchStories, selectCategory, selectCountry } = this.props;
 
-    // TODO: Declare labels as constants?
     return (
       <View style={styles.container}>
         <View style={styles.pickers}>

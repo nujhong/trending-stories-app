@@ -7,8 +7,6 @@ import {
 } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 
-// TODO: build a connected component (i.e. use ownProps to make diff. selection)
-
 const Picker = ({ label, items, selected, select }) => {
   const { value } = items[selected];
   return (
