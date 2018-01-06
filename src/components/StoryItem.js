@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Image, StyleSheet, Platform } from 'react-native';
+import { View, Image, StyleSheet, Platform, Linking } from 'react-native';
 import { Text, ListItem } from 'react-native-elements';
 import * as actions from '../actions';
 
@@ -8,9 +8,10 @@ const StoryItem = ({ item, index, select }) => {
   const {
     thumbnail, caption, captionContainer, container, wrapper, title, subtitle
   } = styles;
+
   return (
     <ListItem
-      onPress={() => select(item.id)}
+      onPress={() => Linking.openURL(`https://trends.google.com/trends/story/${item.id}`)}
       leftIcon={
         <View>
           <Image

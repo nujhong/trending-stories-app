@@ -1,12 +1,17 @@
 import axios from 'axios';
-import { GOOGLE_TRENDS_ROOT, SELECT_STORY, SELECT_CATEGORY, SELECT_COUNTRY, FETCH_STORIES } from './types';
+import {
+  GOOGLE_TRENDS_API, SELECT_STORY, SELECT_CATEGORY, SELECT_COUNTRY, FETCH_STORIES
+} from './types';
+
+// TODO: Chain fetchStories and fetchInterests and display the gradient of interests change in diffrent colours
 
 export function fetchStories() {
   return (dispatch, getState) => {
     const { categories, countries } = getState();
     const { cat } = categories.items[categories.selected];
     const { geo } = countries.items[countries.selected];
-    const request = axios.get(`${GOOGLE_TRENDS_ROOT}/api/stories/latest?`, {
+
+    const request = axios.get(`${GOOGLE_TRENDS_API}/stories/latest?`, {
       params: {
         hl: 'en-AU',
         tz: -660,
@@ -19,10 +24,11 @@ export function fetchStories() {
         sort: 0
       }
     });
+
     dispatch({
       type: FETCH_STORIES,
       payload: request
-    })
+    });
   }
 }
 

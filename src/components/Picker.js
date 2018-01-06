@@ -16,7 +16,7 @@ const Picker = ({ label, items, selected, select }) => {
       containerStyle={styles.picker}
       data={items}
       dropdownPosition={0}
-      itemCount={items.length>8?8:items.length}
+      itemCount={items.length>8 ? 8 : items.length}
       label={label}
       onChangeText={(value, index, data) => {
         select(index)
