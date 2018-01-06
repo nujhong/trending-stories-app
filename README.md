@@ -4,6 +4,8 @@ This project is a practice of React Native with [Google Trends](https://trends.g
 
 
 ## Demo App
+![Top Stories](screenshots/iOS.gif)
+
 Have Expo installed? Scan the QR Code at https://expo.io/@nujhong/top-stories
 
 ## Roadmap
