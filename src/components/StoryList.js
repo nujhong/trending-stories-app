@@ -19,8 +19,8 @@ class StoryList extends Component {
 
     // TODO: Declare labels as constants?
     return (
-      <View>
-        <View style={{ flexDirection: 'row' }}>
+      <View style={styles.container}>
+        <View style={styles.pickers}>
           <Picker label='categories' {...categories} select={selectCategory} />
           <Picker label='countries' {...countries} select={selectCountry} />
         </View>
@@ -35,8 +35,12 @@ class StoryList extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  pickers: { flexDirection: 'row' }
+})
+
 function mapStateToProps({ stories, categories, countries }) {
-  console.log(categories);
   return { stories, categories, countries }
 }
 
