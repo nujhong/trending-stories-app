@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, View, StyleSheet } from 'react-native';
+import { FlatList, View, RefreshControl, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import StoryItem from './StoryItem';
@@ -9,6 +9,8 @@ class StoryList extends Component {
   _keyExtractor = (item) => item.id
 
   _renderItem = (props) => <StoryItem {...props} select={this.props.selectStory}/>
+
+  _onRefresh = () => this.props.fetchStories()
 
   componentWillMount() {
     this.props.fetchStories();
@@ -29,6 +31,12 @@ class StoryList extends Component {
           data={stories}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
+          refreshControl={
+            <RefreshControl
+              refreshing={!this.props.stories}
+              onRefresh={this._onRefresh}
+            />
+          }
         />
       </View>
     );
