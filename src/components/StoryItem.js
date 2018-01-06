@@ -6,7 +6,7 @@ import * as actions from '../actions';
 
 const StoryItem = ({ item, index, select }) => {
   const {
-    thumbnail, caption, captionContainer, container, wrapper, title, subtitle
+    thumbnail, caption, captionContainer, container, wrapper, title, subtitle, source
   } = styles;
 
   return (
@@ -20,6 +20,7 @@ const StoryItem = ({ item, index, select }) => {
           />
           <View style={captionContainer} />
           <Text style={caption}>{++index}</Text>
+          <Text style={source}>{item.image.source}</Text>
         </View>
       }
       containerStyle={container}
@@ -56,6 +57,15 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     marginLeft: 10
+  },
+  source: {
+    color: 'white',
+    position: 'absolute',
+    textAlign: 'center',
+    left: 0,
+    right: 0,
+    bottom: 15,
+    fontSize: 10
   },
   thumbnail: {
     position: 'relative',
